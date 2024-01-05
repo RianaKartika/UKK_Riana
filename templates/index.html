@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+      <meta property="og:title" content="Restaurant Listing" />
+      <meta property="og:description" content="mini project for Web Plus" />
+      <meta property="og:image" content="{{ url_for('static', filename='banner.jpg') }}" />
+
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <link rel="stylesheet" href="{{url_for('static', filename='mystyle.css')}}">
+
+      <title>Restaurant Map</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+      <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+
+      <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="{{url_for('static', filename='myjs.js')}}"></script>
+
+      <style>
+            .banner {
+                  width: 100%;
+                  height: 20vh;
+                  background-image: url("{{ url_for('static', filename='rest.jpeg') }}");
+                  background-position: center;
+                  background-size: contain;
+                  background-repeat: repeat;
+            }
+      </style>
+</head>
+
+<body>
+      <div class="wrap">
+            <div class="banner">
+                  <div class="d-flex flex-column align-items-center"
+                        style="background-color: rgba(0,0,0,0.5);width: 100%;height: 100%;">
+                        <h1 class="title mt-5 mb-2">Restaurant Map</h1>
+                  </div>
+            </div>
+
+            <div id="map"></div>
+
+            <div class="restaurant-list" id="restaurant-box">
+                  <div class="card" id="card-0">
+                        <div class="card-body">
+                              <h5 class="card-title">
+                                    <a href="#" class="restaurant-title">Rianas Restaurant</a>
+                              </h5>
+                              <h6 class="card-subtitle mb-2 tex-muted">Mi Goyeng</h6>
+                              <p class="card-text">Location Of Restaurant</p>
+                        </div>
+                  </div>
+            </div>
+
+            <div class="card" style="margin-top: 32px;">
+                  <div class="card-body">
+                        <div class="mb-3">
+                              <label for="input-name" class="form-label">Name</label>
+                              <input type="text" class="form-control" id="input-name"
+                                    placeholder="input restaurant name">
+                        </div>
+                        <div class="mb-3">
+                              <label for="input-categories" class="form-label">Categories</label>
+                              <input type="text" class="form-control" id="input-categories"
+                                    placeholder="input restaurant categories">
+                        </div>
+                        <div class="mb-3">
+                              <label for="input-location" class="form-label">Location</label>
+                              <input type="text" class="form-control" id="input-location"
+                                    placeholder="input restaurant location">
+                        </div>
+                        <div class="mb-3">
+                              <label for="input-longitude" class="form-label">Longitude</label>
+                              <input type="number" class="form-control" id="input-longitude"
+                                    placeholder="input restaurant longitude">
+                        </div>
+                        <div class="mb-3">
+                              <label for="input-latitude" class="form-label">Latitude</label>
+                              <input type="number" class="form-control" id="input-latitude"
+                                    placeholder="input restaurant latitude">
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="create_restaurant()">Create</button>
+                  </div>
+            </div>
+      </div>
+
+</body>
+
+</html>
